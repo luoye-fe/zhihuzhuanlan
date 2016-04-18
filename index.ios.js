@@ -3,19 +3,19 @@
 var React = require('react-native');
 
 // api
-var Server = require('./static/ios/src/js/server/index.js');
+var Server = require('./script/server/index.js');
 
 // util
-var Util = require('./static/ios/src/js/util/index.js');
+var Util = require('./script/util/index.js');
 
 // 主组件
-var Post = require('./static/ios/src/js/component/main/post.js');
-var Column = require('./static/ios/src/js/component/main/column.js');
-var Mine = require('./static/ios/src/js/component/main/mine.js');
-var Set = require('./static/ios/src/js/component/main/set.js');
+var Post = require('./script/component/main/post.js');
+var Column = require('./script/component/main/column.js');
+var Mine = require('./script/component/main/mine.js');
+var Set = require('./script/component/main/set.js');
 
 // 绑定用户
-var BindUser = require('./static/ios/src/js/component/user/bindUser.js');
+var BindUser = require('./script/component/user/bindUser.js');
 
 var {
     AppRegistry,
