@@ -68,7 +68,7 @@ Login(commonUser,function(cookies){
     // zhihu.User(user_url,function(user){
         // console.log(user);
     // })
-    // console.log(cookies);
+    console.log(cookies);
 })
 
 module.exports = {

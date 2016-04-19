@@ -17,7 +17,7 @@ var {
 	Image
 } = React;
 
-var logo = require('../../../img/logo.png');
+var logo = require('image!logo');
 
 var BindUser = React.createClass({
 	getInitialState: function() {

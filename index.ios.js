@@ -1,29 +1,28 @@
 // 知乎专栏app ios 主入口
 
 // 全局注册 storage
-require('./static/src/js/store/storage.js');
+require('./script/src/store/storage.js');
 var Storage = global.storage;
 
 var React = require('react-native');
 
 // api
-var Server = require('./static/src/js/server/index.js');
+var Server = require('./script/src/server/index.js');
 
 // util
-var Util = require('./static/src/js/util/index.js');
+var Util = require('./script/src/util/index.js');
 
 // 主组件
-var Post = require('./static/src/js/component/main/post.js');
-var Column = require('./static/src/js/component/main/column.js');
-var Mine = require('./static/src/js/component/main/mine.js');
-var Set = require('./static/src/js/component/main/set.js');
+var Post = require('./script/src/component/main/post.js');
+var Column = require('./script/src/component/main/column.js');
+var Mine = require('./script/src/component/main/mine.js');
+var Set = require('./script/src/component/main/set.js');
 
 // 绑定用户组件
-var BindUser = require('./static/src/js/component/user/bindUser.js');
+var BindUser = require('./script/src/component/user/bindUser.js');
 
 // 爬虫模拟知乎登陆
-var ZHIHU = require('./static/src/js/server/initZhihu.js');
-
+var ZHIHU = require('./script/src/server/initZhihu.js');
 
 var {
     AppRegistry,
