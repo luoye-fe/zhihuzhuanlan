@@ -1,19 +1,32 @@
 // 专栏列表
 
-var React = require('react-native');
+import React from 'react-native';
 
 var {
+	View,
     Text,
-    Component
+    Component,
+    StyleSheet
 } = React;
 
 var Column = React.createClass({
-    render: function() {
+    render() {
         return (
-            <Text>Column</Text>
+        	<View style={styles.container}>
+            	<Text style={styles.text}>Column</Text>
+            </View>
         );
     }
 })
 
+var styles = StyleSheet.create({
+	container: {
+		flex: 1,
+		marginTop: 66
+	},
+	text: {
+		fontSize: 18,
+	}
+})
 
 module.exports = Column;

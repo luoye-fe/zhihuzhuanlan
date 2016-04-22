@@ -1,19 +1,32 @@
-// 我的文章
+// 我的
 
-var React = require('react-native');
+import React from 'react-native';
 
 var {
+	View,
     Text,
-    Component
+    Component,
+    StyleSheet
 } = React;
 
 var Mine = React.createClass({
-    render: function() {
+    render() {
         return (
-            <Text>Mine</Text>
+        	<View style={styles.container}>
+            	<Text style={styles.text}>Mine</Text>
+            </View>
         );
     }
 })
 
+var styles = StyleSheet.create({
+	container: {
+		flex: 1,
+		marginTop: 66
+	},
+	text: {
+		fontSize: 18,
+	}
+})
 
 module.exports = Mine;
