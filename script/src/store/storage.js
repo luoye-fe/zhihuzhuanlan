@@ -1,6 +1,6 @@
 // 持久化存储 key value
 
-import Storage from 'react-native-storage';  // 不能使用 require 会报错
+import Storage from 'react-native-storage';
 
 var storage = new Storage({
     size: 1000,
