@@ -47,16 +47,15 @@ var App = React.createClass({
 	    }
 	},
 	componentWillMount() {
-	    var _this = this;
 	    Storage.load({
 	        key: 'userInfo'
 	    }).then((userInfo) => {
-	        _this.setState({
+	        this.setState({
 	            showBindUser: false
 	        })
 	        return;
 	    }).catch((err) => {})
-	    _this.setState({
+	    this.setState({
 	        showBindUser: true
 	    })
 	},
@@ -77,13 +76,13 @@ var App = React.createClass({
 		})
 	},
 	render() {
-	    // if(this.state.showBindUser){
-	    //     return (
-	    //         <BindUser></BindUser>
-	    //     )
-	    // }
+	    if(this.state.showBindUser){
+	        return (
+	            <BindUser></BindUser>
+	        )
+	    }
 	    return (
-	    	<View style={styles.container}>
+	    	<View style={{flex: 1}}>
 		        <TabBarIOS>
 		        	<TabBarIOS.Item title='文章' selected={this.state.selectedTab === 'Post'} onPress={this._selectTab.bind(this, 'Post')}>
 		        		{this._addNavigator(Post, '文章')}

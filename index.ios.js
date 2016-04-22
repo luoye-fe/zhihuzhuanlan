@@ -14,8 +14,7 @@ import App from './script/src/app.js';
 var {
     AppRegistry,
     View,
-    StatusBar,
-    StyleSheet
+    StatusBar
 } = React;
 
 StatusBar.setBarStyle('default');
@@ -23,16 +22,10 @@ StatusBar.setBarStyle('default');
 var zhihuzhuanlan = React.createClass({
     render() {
         return (
-           <View style={styles.container}>
+           <View style={{flex: 1}}>
                <App></App>
            </View>
         )
-    }
-})
-
-var styles = StyleSheet.create({
-    container: {
-        flex: 1
     }
 })
 
