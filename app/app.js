@@ -1,8 +1,12 @@
 // app main
-import React from 'react-native';
 
-// api
-import Server from './server/index.js';
+// 全局注册 storage
+import './store/storage.js';
+
+// 爬虫模拟知乎登陆
+import './server/initZhihu.js';
+
+import React from 'react-native';
 
 // util
 import Util from './util/index.js';
@@ -90,8 +94,8 @@ var App = React.createClass({
 		        	<TabBarIOS.Item title='专栏' selected={this.state.selectedTab === 'Column'} onPress={this._selectTab.bind(this, 'Column')}>
 		        		{this._addNavigator(Column, '专栏')}
 		        	</TabBarIOS.Item>
-		        	<TabBarIOS.Item title='我的' selected={this.state.selectedTab === 'Mine'} onPress={this._selectTab.bind(this, 'Mine')}>
-		        		{this._addNavigator(Mine, '我的')}
+		        	<TabBarIOS.Item title='我' selected={this.state.selectedTab === 'Mine'} onPress={this._selectTab.bind(this, 'Mine')}>
+		        		{this._addNavigator(Mine, '我')}
 		        	</TabBarIOS.Item>
 		        </TabBarIOS>
 		    </View>
