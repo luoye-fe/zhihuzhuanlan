@@ -10,7 +10,6 @@ utils.mixin = (source, target) => {
     return source;
 }
 
-
 import screen from './screen.js';
 
 utils.mixin(utils, screen);

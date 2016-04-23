@@ -15,6 +15,9 @@ var {
 
 import Loading from '../common/loading.js';
 
+import store from '../../store/createStore.js';
+import actions from '../../store/action/index.js';
+
 var logo = require('image!logo');
 
 var BindUser = React.createClass({
@@ -28,7 +31,7 @@ var BindUser = React.createClass({
 	},
 	_bindUser() {
 		if(this.state.userID !== '' && this.state.userID !== null){
-			// console.log(this.props);
+			store.dispatch(actions.showLoading('加载中，请稍后'))
 		}else{
 			console.log('youcuo');
 		}

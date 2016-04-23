@@ -5,10 +5,7 @@ import App from './app/app.js';
 
 import { Provider } from 'react-redux';
 
-import initialState from './app/store/store.js';
-import createInitStore from './app/store/createStore.js'
-
-var store = createInitStore(initialState);
+import store from './app/store/createStore.js';
 
 var {
     AppRegistry,

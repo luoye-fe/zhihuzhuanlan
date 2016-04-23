@@ -13,6 +13,4 @@ utils.screen = (() => {
 	return _result;
 })()
 
-console.log(utils.screen);
-
 export default utils;

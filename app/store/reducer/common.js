@@ -23,13 +23,20 @@ reducer.loading = (state = initialState, action) => {
     }
 }
 
-reducer.alertConfig = (state = initialState, action) => {
+reducer.alert = (state = initialState, action) => {
     switch (action.type) {
         case 'ALERT':
             return Object.assign({}, state, {
                 alertConfig: {
                     show: true,
                     msg: action.msg ? action.msg : '提示信息'
+                }
+            });
+        case 'HIDEALERT':
+            return Object.assign({}, state, {
+                alertConfig: {
+                    show: false,
+                    msg: null
                 }
             });
         default:

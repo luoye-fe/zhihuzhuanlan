@@ -5,7 +5,7 @@ export default {
 		show: false,
 		msg: '加载中'
 	},
-	alertConfig: {
+	alert: {
 		show: false,
 		msg: '提示'
 	}

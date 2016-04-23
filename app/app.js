@@ -22,8 +22,6 @@ import BindUser from './component/user/bindUser.js';
 // 全局storge
 var Storage = global.storage;
 
-
-
 var {
 	Component,
 	StyleSheet,

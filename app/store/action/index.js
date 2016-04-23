@@ -3,6 +3,6 @@ import utils from '../../util/index.js';
 var actions = {};
 
 import common from './common.js';
-utils.mixin(common, actions);
+utils.mixin(actions, common);
 
 export default actions;

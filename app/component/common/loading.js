@@ -16,9 +16,9 @@ var Loading = React.createClass({
 	getInitialState: function(){
 		return {
 			container: {
-				width: utils.screen.width,
-				height: utils.screen.height,
-				opacity: 1
+				width: this.props.loading.show ? utils.screen.width : 0,
+				height: this.props.loading.show ? utils.screen.height : 0,
+				opacity: this.props.loading.show ? 1 : 0,
 			}
 		}
 	},
@@ -26,13 +26,13 @@ var Loading = React.createClass({
 
 	},
 	componentDidMount: function(){
-		console.log(this.props.loading);
+		// console.log(this.props.loading);
 	},
 	render: function(){
 		return (
 			<View style={[styles.container, this.state.container]}>
 				<View style={styles.main}>
-					<Text style={styles.msg}>{'asd'}</Text>
+					<Text style={styles.msg}>{this.props.loading.msg}</Text>
 				</View>
 			</View>
 		)

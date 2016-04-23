@@ -3,10 +3,8 @@
 import {createStore, applyMiddleware} from 'redux';
 import thunkMiddleware from 'redux-thunk';
 import rootReducer from './reducer/index.js';
+import initialState from './store.js';
 
 var createStoreWithMiddleware = applyMiddleware(thunkMiddleware)(createStore);
 
-export default function createInitStore(initialState) {
-	var store = createStoreWithMiddleware(rootReducer, initialState);
-	return store;
-}
+export default createStoreWithMiddleware(rootReducer, initialState);
