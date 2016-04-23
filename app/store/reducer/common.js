@@ -37,6 +37,17 @@ reducer.alert = (state = initialState, action) => {
     }
 }
 
+reducer.bindUser = (state = initialState, action) => {
+    switch (action.type) {
+        case 'SHOWBINDUSER':
+            return Object.assign({}, state.bindUser, true);
+        case 'HIDEBINDUSER':
+            return Object.assign({}, state.bindUser, false);
+        default:
+            return state;
+    }
+}
+
 
 
 export default reducer;

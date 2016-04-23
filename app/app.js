@@ -3,8 +3,8 @@
 // 全局注册 storage
 import './store/storage.js';
 
-// 爬虫模拟知乎登陆
-import './server/initZhihu.js';
+// 爬虫模拟知乎登陆 （废弃）
+// import './server/initZhihu.js';
 
 import React from 'react-native';
 
@@ -18,6 +18,9 @@ import Mine from './component/main/mine.js';
 
 // 绑定用户组件
 import BindUser from './component/user/bindUser.js';
+
+import store from './store/createStore.js';
+import actions from './store/action/index.js';
 
 // 全局storge
 var Storage = global.storage;
@@ -46,22 +49,18 @@ var App = React.createClass({
 	},
 	getInitialState() {
 	    return {
-	        selectedTab: 'Post',
-	        showBindUser: false
+	        selectedTab: 'Post'
 	    }
 	},
 	componentWillMount() {
 	    Storage.load({
 	        key: 'userInfo'
 	    }).then((userInfo) => {
-	        this.setState({
-	            showBindUser: false
-	        })
-	        return;
+	        
 	    }).catch((err) => {})
-	    this.setState({
-	        showBindUser: true
-	    })
+	    // this.setState({
+	    //     showBindUser: true
+	    // })
 	},
 	componentDidMount() {
 
@@ -75,16 +74,12 @@ var App = React.createClass({
 		)
 	},
 	_selectTab(tab) {
+		console.log(tab);
 		this.setState({
 			selectedTab: tab
 		})
 	},
 	render() {
-	    if(this.state.showBindUser){
-	        return (
-	            <BindUser loading={this.props.loading}></BindUser>
-	        )
-	    }
 	    return (
 	    	<View style={{flex: 1}}>
 		        <TabBarIOS>
@@ -98,6 +93,7 @@ var App = React.createClass({
 		        		{this._addNavigator(Mine, '我')}
 		        	</TabBarIOS.Item>
 		        </TabBarIOS>
+		        <BindUser></BindUser>
 		    </View>
 	    )
 	}
@@ -110,7 +106,3 @@ var styles = StyleSheet.create({
 })
 
 export default App;
-
-
-
-

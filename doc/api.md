@@ -1,12 +1,12 @@
 
 
 ## 获取关注人接口：
-地址：`https://www.zhihu.com/node/ProfileFolloweesListV2`
+地址：`https://www.zhihu.com/node/ProfileFollowedColumnsListV2`
 方法：`post`
 参数：
 ```
 method:next
-params:{"offset":20,"order_by":"created","hash_id":"67776f35550de7a68a472e8de03e157b"}
+params:{"offset":20,"limit":9999,"hash_id":"67776f35550de7a68a472e8de03e157b"}
 _xsrf:99080c5161e4cc4feffc2ecc28382408
 ```
 数据格式：

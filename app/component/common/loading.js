@@ -5,7 +5,6 @@ import React from 'react-native';
 import utils from '../../util/index.js';
 
 import store from '../../store/createStore.js';
-
 import { connect } from 'react-redux';
 
 var {
@@ -38,7 +37,7 @@ var Loading = React.createClass({
 				opacity: store.getState().loading.show ? 1 : 0,
 			}]}>
 				<View style={styles.main}>
-					<Text style={styles.msg}>{this.props.loading.msg}</Text>
+					<Text style={styles.msg}>{store.getState().loading.msg}</Text>
 				</View>
 			</View>
 		)
@@ -62,11 +61,11 @@ var styles = StyleSheet.create({
 	},
 	main: {
 		width: 140,
-		height: 140,
-		backgroundColor: '#4a4a4a',
+		height: 120,
+		backgroundColor: 'rgba(0,0,0,0.8)',
 		alignItems: 'center',
 		justifyContent: 'center',
-		borderRadius: 8
+		borderRadius: 4
 	},
 	msg: {
 		color: '#fff',
@@ -75,4 +74,3 @@ var styles = StyleSheet.create({
 })
 
 export default connect(mapStateToProps)(Loading);
-

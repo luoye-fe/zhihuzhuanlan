@@ -2,6 +2,9 @@
 import React from 'react-native';
 import request from 'superagent';
 
+// import { Login } from  '../../server/initZhihu.js'; // 废弃，登陆要验证码了，不能登陆之后查询全部信息了
+var Storage = global.storage;
+
 var {
 	View,
 	Text,
@@ -17,6 +20,9 @@ import Loading from '../common/loading.js';
 
 import store from '../../store/createStore.js';
 import actions from '../../store/action/index.js';
+import { connect } from 'react-redux';
+
+import utils from '../../util/index.js';
 
 var logo = require('image!logo');
 
@@ -32,13 +38,39 @@ var BindUser = React.createClass({
 	_bindUser() {
 		if(this.state.userID !== '' && this.state.userID !== null){
 			store.dispatch(actions.showLoading('初始化，请稍后'))
+			utils.fetch({
+				type: 'GET',
+				url: 'https://www.zhihu.com/people/'+ this.state.userID,
+				getHTML: true
+			}, (err, $) => {
+			    if(err){
+			        console.log('没有这个用户哟');
+			        store.dispatch(actions.hideLoading('初始化，请稍后'))
+			        return;
+			    }else{
+			    	// 写入用户信息，包括 userID,hashID,userAvatorHash,userName
+			    	var current_people = JSON.parse($('[data-name="current_people"]').text());
+			    	console.log(current_people);
+			    	// Storage.
+			    	// 获取用户关注的所有专栏
+			    	// utils.getAllFollowedColumns(() => {
+			    	// 	console.log(1);
+			    	// })
+
+			    	// console.log($);
+			    }
+			})
 		}else{
 			console.log('youcuo');
 		}
 	},
 	render() {
 		return (
-			<View style={styles.container}>
+			<View style={[styles.container], {
+				width: store.getState().bindUser ? utils.screen.width : 0,
+				height: store.getState().bindUser ? utils.screen.height : 0,
+				opacity: store.getState().bindUser ? 1 : 0
+			}}>
 				<Image source={logo} style={styles.logo}></Image>
 				<Text style={styles.h2}>随心写作，自由表达</Text>
 				<TextInput style={styles.input} placeholder='请输入您的ID' autoCapitalize='none' autoCorrect={false} clearButtonMode='while-editing' onChangeText={(value) => this.setState({userID: value})}></TextInput>
@@ -57,10 +89,19 @@ var BindUser = React.createClass({
 })
 
 
+var mapStateToProps = function(state) {
+  	return { 
+  		bindUser: state.bindUser
+  	};
+}
+
 var styles = StyleSheet.create({
 	container: {
-		flex: 1,
-		backgroundColor: '#fff'
+		backgroundColor: '#fff',
+		position: 'absolute',
+		top: 0,
+		left: 0,
+		backgroundColor: '#000'
 	},
 	logo: {
 		width: 100,
@@ -120,8 +161,4 @@ var styles = StyleSheet.create({
 	}
 })
 
-export default BindUser;
-
-
-
-
+export default connect(mapStateToProps)(BindUser);

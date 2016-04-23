@@ -1,12 +1,10 @@
 // 知乎 模拟登陆 获取用户的基本信息 获取关注人文章列表 获取用户关注的专栏 获取用户关注的专栏的文章列表 获取用户的文章列表
-'use strict';
-
 import request from 'superagent';
 import cheerio from 'cheerio';
 
 var Storage = global.storage;
 
-var getCookie = (params, xsrf, cb) => {
+var getCookie = (params, xsrf, cb) => { // 废弃
     request
         .post('https://www.zhihu.com/login/phone_num')
         .set('Content-Type', 'application/x-www-form-urlencoded; charset=UTF-8')
@@ -19,6 +17,7 @@ var getCookie = (params, xsrf, cb) => {
             remember_me: false
         })
         .end((err, res) => {
+            console.log(res);
             if (err) {
                 return next(err);
             }
@@ -26,7 +25,7 @@ var getCookie = (params, xsrf, cb) => {
         })
 }
 
-var Login = (params, cb) => {
+var Login = (params, cb) => { // 废弃
     Storage.load({
         key: 'loginCookies',
     }).then((cookies) => {
@@ -58,19 +57,23 @@ var Login = (params, cb) => {
     })
 }
 
-var commonUser = {
-    name: '15652264170',
-    password: 'rqy520821'
-}
+// 存入默认查询帐号 (发现知乎登陆需要验证码。直接查询。废弃。)
+// Storage.load({
+//     key: 'commonUser'
+// }).then((commonUser) => {
+
+// }).catch((err) => {
+//     Storage.save({
+//         key: 'commonUser',
+//         rawData: {
+//             name: '15652264170',
+//             password: 'rqy520821'
+//         },
+//         expires: null
+//     })
+// })
 
 
-Login(commonUser, (cookies) => {
-    // zhihu.User(user_url,function(user){
-    // console.log(user);
-    // })
-    console.log(cookies);
-})
-
-export default {
+export {
     Login
 };

@@ -8,5 +8,6 @@ export default {
 	alert: {
 		show: false,
 		msg: '提示'
-	}
+	},
+	bindUser: false
 }

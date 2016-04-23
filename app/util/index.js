@@ -11,8 +11,9 @@ utils.mixin = (source, target) => {
 }
 
 import screen from './screen.js';
+import request from './request.js';
 
 utils.mixin(utils, screen);
-
+utils.mixin(utils, request);
 
 export default utils;

@@ -31,4 +31,17 @@ actions.alert = (msg) => {
     // }
 }
 
+actions.showBindUser = () => {
+    return {
+        type: 'SHOWBINDUSER'
+    }
+}
+
+actions.hideBindUser = () => {
+    return {
+        type: 'HIDEBINDUSER'
+    }
+}
+
+
 export default actions;
