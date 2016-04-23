@@ -1,7 +1,10 @@
+// 全局加载中提示组件
 
 import React from 'react-native';
 
 import utils from '../../util/index.js';
+
+import store from '../../store/createStore.js';
 
 import { connect } from 'react-redux';
 
@@ -13,24 +16,27 @@ var {
 } = React;
 
 var Loading = React.createClass({
-	getInitialState: function(){
+	getInitialState(){
 		return {
-			container: {
-				width: this.props.loading.show ? utils.screen.width : 0,
-				height: this.props.loading.show ? utils.screen.height : 0,
-				opacity: this.props.loading.show ? 1 : 0,
-			}
+
 		}
 	},
-	componentWillMount: function(){
+	componentWillMount(){
 
 	},
-	componentDidMount: function(){
-		// console.log(this.props.loading);
+	componentDidMount(){
+
 	},
-	render: function(){
+	_render(){
+
+	},
+	render(){
 		return (
-			<View style={[styles.container, this.state.container]}>
+			<View style={[styles.container, {
+				width: store.getState().loading.show ? utils.screen.width : 0,
+				height: store.getState().loading.show ? utils.screen.height : 0,
+				opacity: store.getState().loading.show ? 1 : 0,
+			}]}>
 				<View style={styles.main}>
 					<Text style={styles.msg}>{this.props.loading.msg}</Text>
 				</View>
@@ -65,7 +71,6 @@ var styles = StyleSheet.create({
 	msg: {
 		color: '#fff',
 		fontSize: 12,
-
 	}
 })
 

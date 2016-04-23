@@ -31,7 +31,7 @@ var BindUser = React.createClass({
 	},
 	_bindUser() {
 		if(this.state.userID !== '' && this.state.userID !== null){
-			store.dispatch(actions.showLoading('加载中，请稍后'))
+			store.dispatch(actions.showLoading('初始化，请稍后'))
 		}else{
 			console.log('youcuo');
 		}
