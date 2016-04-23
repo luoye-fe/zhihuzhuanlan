@@ -13,7 +13,8 @@ var {
 	ScrollView,
 	StyleSheet,
 	Image,
-	TouchableHighlight
+	TouchableHighlight,
+	ScrollView
 } = React;
 
 import Loading from '../common/loading.js';
@@ -67,9 +68,9 @@ var BindUser = React.createClass({
 	render() {
 		return (
 			<View style={[styles.container], {
-				width: store.getState().bindUser ? utils.screen.width : 0,
-				height: store.getState().bindUser ? utils.screen.height : 0,
-				opacity: store.getState().bindUser ? 1 : 0
+				width: store.getState().bindUser.show ? utils.screen.width : 0,
+				height: store.getState().bindUser.show ? utils.screen.height : 0,
+				opacity: store.getState().bindUser.show ? 1 : 0
 			}}>
 				<Image source={logo} style={styles.logo}></Image>
 				<Text style={styles.h2}>随心写作，自由表达</Text>
@@ -97,11 +98,9 @@ var mapStateToProps = function(state) {
 
 var styles = StyleSheet.create({
 	container: {
-		backgroundColor: '#fff',
 		position: 'absolute',
 		top: 0,
 		left: 0,
-		backgroundColor: '#000'
 	},
 	logo: {
 		width: 100,

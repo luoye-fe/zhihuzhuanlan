@@ -26,9 +26,6 @@ var Loading = React.createClass({
 	componentDidMount(){
 
 	},
-	_render(){
-
-	},
 	render(){
 		return (
 			<View style={[styles.container, {
@@ -52,12 +49,10 @@ var mapStateToProps = function(state) {
 
 var styles = StyleSheet.create({
 	container: {
-		alignItems: 'center',
-		justifyContent: 'center',
 		position: 'absolute',
 		top: 0,
 		left: 0,
-		backgroundColor: 'rgba(0,0,0,0)'
+		backgroundColor: 'rgba(0,0,0,1)'
 	},
 	main: {
 		width: 140,

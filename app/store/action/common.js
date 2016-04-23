@@ -18,17 +18,6 @@ actions.alert = (msg) => {
         type: 'ALERT',
         msg: msg
     }
-    // return (dispatch, getState) => {
-    // 	{
-    // 		type: 'ALERT',
-    // 		msg: msg
-    // 	}
-    // 	setTimeout(() => {
-    // 		dispatch({
-    // 			type: 'HIDEALERT'			
-    // 		})
-    // 	}, 1500);
-    // }
 }
 
 actions.showBindUser = () => {

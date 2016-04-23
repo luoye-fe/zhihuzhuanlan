@@ -56,11 +56,9 @@ var App = React.createClass({
 	    Storage.load({
 	        key: 'userInfo'
 	    }).then((userInfo) => {
-	        
+	        store.dispatch(actions.hideBindUser());
 	    }).catch((err) => {})
-	    // this.setState({
-	    //     showBindUser: true
-	    // })
+	    store.dispatch(actions.showBindUser());
 	},
 	componentDidMount() {
 
@@ -74,7 +72,6 @@ var App = React.createClass({
 		)
 	},
 	_selectTab(tab) {
-		console.log(tab);
 		this.setState({
 			selectedTab: tab
 		})
@@ -93,16 +90,14 @@ var App = React.createClass({
 		        		{this._addNavigator(Mine, '我')}
 		        	</TabBarIOS.Item>
 		        </TabBarIOS>
-		        <BindUser></BindUser>
+				<BindUser></BindUser>
 		    </View>
 	    )
 	}
 })
 
 var styles = StyleSheet.create({
-	container: {
-		flex: 1
-	}
+
 })
 
 export default App;
