@@ -1,17 +1,9 @@
-/* 
- * 全局加载中提示组件
- * 所需props:
- 	{
- 		show: true,
- 		msg: '初始化中，请稍后'
- 	}
- */
 
+import React from 'react-native';
 
-var React = require('react-native');
+import utils from '../../util/index.js';
 
-var Dimensions = require('Dimensions');
-var PixelRatio = require('PixelRatio');
+import { connect } from 'react-redux';
 
 var {
 	View,
@@ -24,9 +16,9 @@ var Loading = React.createClass({
 	getInitialState: function(){
 		return {
 			container: {
-				width: this.props.loadingConfig.show ? Dimensions.get('window').width : 0,
-				height: this.props.loadingConfig.show ? Dimensions.get('window').height : 0,
-				opacity: this.props.loadingConfig.show ? 1 : 0
+				width: utils.screen.width,
+				height: utils.screen.height,
+				opacity: 1
 			}
 		}
 	},
@@ -34,23 +26,24 @@ var Loading = React.createClass({
 
 	},
 	componentDidMount: function(){
-
-	},
-	shouldComponentUpdate: function(nextProps, nextState){
-		console.log(this.props.loadingConfig.show);
-		return true;
+		console.log(this.props.loading);
 	},
 	render: function(){
 		return (
 			<View style={[styles.container, this.state.container]}>
 				<View style={styles.main}>
-					<Text style={styles.msg}>{this.props.loadingConfig.msg}</Text>
+					<Text style={styles.msg}>{'asd'}</Text>
 				</View>
 			</View>
 		)
 	}
 })
 
+var mapStateToProps = function(state) {
+  	return { 
+  		loading: state.loading
+  	};
+}
 
 var styles = StyleSheet.create({
 	container: {
@@ -76,4 +69,5 @@ var styles = StyleSheet.create({
 	}
 })
 
-module.exports = Loading;
+export default connect(mapStateToProps)(Loading);
+

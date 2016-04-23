@@ -28,7 +28,7 @@ var BindUser = React.createClass({
 	},
 	_bindUser() {
 		if(this.state.userID !== '' && this.state.userID !== null){
-
+			// console.log(this.props);
 		}else{
 			console.log('youcuo');
 		}
@@ -47,10 +47,12 @@ var BindUser = React.createClass({
 					<Text style={styles.descText}>1、用户ID为您的主页地址最后几位。比如我的主页地址为：<Text style={styles.link}> https://www.zhihu.com/people/luo-ye-42-22 </Text>，那么我的ID就是<Text style={styles.link}> luo-ye-42-22 </Text></Text>
 					<Text style={styles.descText}>2、绑定ID只是为了获取您的一些基本信息，比如昵称，关注人，专栏信息等，这些信息都是公开的，并且本应用一定会安全的使用这些信息。</Text>
 				</View>
+				<Loading></Loading>
 			</View>
 		)
 	}
 })
+
 
 var styles = StyleSheet.create({
 	container: {
@@ -115,7 +117,7 @@ var styles = StyleSheet.create({
 	}
 })
 
-module.exports = BindUser;
+export default BindUser;
 
 
 

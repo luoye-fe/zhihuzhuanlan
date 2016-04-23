@@ -29,4 +29,4 @@ var styles = StyleSheet.create({
 	}
 })
 
-module.exports = Mine;
+export default Mine;

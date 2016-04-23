@@ -22,6 +22,8 @@ import BindUser from './component/user/bindUser.js';
 // 全局storge
 var Storage = global.storage;
 
+
+
 var {
 	Component,
 	StyleSheet,
@@ -82,7 +84,7 @@ var App = React.createClass({
 	render() {
 	    if(this.state.showBindUser){
 	        return (
-	            <BindUser></BindUser>
+	            <BindUser loading={this.props.loading}></BindUser>
 	        )
 	    }
 	    return (
@@ -109,7 +111,7 @@ var styles = StyleSheet.create({
 	}
 })
 
-module.exports = App;
+export default App;
 
 
 

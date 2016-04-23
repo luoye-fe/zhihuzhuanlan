@@ -3,9 +3,15 @@ import React from 'react-native';
 
 import App from './app/app.js';
 
+import { Provider } from 'react-redux';
+
+import initialState from './app/store/store.js';
+import createInitStore from './app/store/createStore.js'
+
+var store = createInitStore(initialState);
+
 var {
     AppRegistry,
-    View,
     StatusBar
 } = React;
 
@@ -13,10 +19,10 @@ StatusBar.setBarStyle('default');
 
 var zhihuzhuanlan = React.createClass({
     render() {
-        return (
-           <View style={{flex: 1}}>
-               <App></App>
-           </View>
+        return ( 
+            <Provider style = {{flex: 1}} store={store}>
+                <App/>
+            </Provider>
         )
     }
 })

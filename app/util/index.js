@@ -11,9 +11,9 @@ utils.mixin = (source, target) => {
 }
 
 
-import * as screen from './screen.js';
+import screen from './screen.js';
 
-utils.mixin(screen, utils);
+utils.mixin(utils, screen);
 
 
-module.exports = utils;
+export default utils;

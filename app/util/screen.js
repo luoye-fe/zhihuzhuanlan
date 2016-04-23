@@ -5,12 +5,14 @@ import PixelRatio from 'PixelRatio';
 var utils = {};
 
 
-utils.screen = () => {
+utils.screen = (() => {
 	var _result = {};
 	_result.width = Dimensions.get('window').width;
 	_result.height = Dimensions.get('window').height;
 	_result.dpi = PixelRatio.get();
 	return _result;
-}
+})()
 
-module.exports = utils;
+console.log(utils.screen);
+
+export default utils;
