@@ -52,15 +52,17 @@ var styles = StyleSheet.create({
 		position: 'absolute',
 		top: 0,
 		left: 0,
-		backgroundColor: 'rgba(0,0,0,1)'
+		backgroundColor: 'rgba(0,0,0,0)',
+		justifyContent: 'center',
+		alignItems: 'center'
 	},
 	main: {
 		width: 140,
 		height: 120,
 		backgroundColor: 'rgba(0,0,0,0.8)',
+		borderRadius: 4,
 		alignItems: 'center',
-		justifyContent: 'center',
-		borderRadius: 4
+		justifyContent: 'center'
 	},
 	msg: {
 		color: '#fff',

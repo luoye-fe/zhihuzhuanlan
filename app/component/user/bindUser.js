@@ -49,9 +49,18 @@ var BindUser = React.createClass({
 			        store.dispatch(actions.hideLoading('初始化，请稍后'))
 			        return;
 			    }else{
-			    	// 写入用户信息，包括 userID,hashID,userAvatorHash,userName
-			    	var current_people = JSON.parse($('[data-name="current_people"]').text());
-			    	console.log(current_people);
+			    	// 写入用户信息，包括 userID,hashID,userAvatorHash,userName,_xsrf
+			    	var currentPeople = JSON.parse($('[data-name="current_people"]').text());
+			    	var userInfo = {};
+			    	userInfo.userName = currentPeople[0];
+			    	userInfo.userID = currentPeople[1];
+			    	userInfo.userAvatorHash = currentPeople[2].match(/^http[\s\S]+\/([\s\S]+?)\_s/)[1];
+			    	userInfo.hashID = currentPeople[3];
+			    	userInfo._xsrf = $('[name="_xsrf"]').eq(0).val();
+			    	console.log(userInfo);
+			    	utils.getAllFollowedColumns(userInfo.hashID, userInfo._xsrf, (res) => {
+			    		console.log(res);
+			    	});
 			    	// Storage.
 			    	// 获取用户关注的所有专栏
 			    	// utils.getAllFollowedColumns(() => {
